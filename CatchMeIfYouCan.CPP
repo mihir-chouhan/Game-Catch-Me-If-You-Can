@@ -9,6 +9,7 @@
 #include<math.h>
 #include<stdio.h>
 
+
 void menu();
 void game();
 void game_info();
@@ -19,8 +20,11 @@ void distance(int m,int n,int o,int p,int variable)//Closing Statement
 	char msg[128];
 	int z =abs(m-o);
 	int y =abs(n-p);
-	if(sqrt(pow(z,2)+pow(y,2))<=35)//Condition to check if game over
+	if(sqrt(pow(z,2)+pow(y,2))<=30)//Condition to check if game over
 	{
+		sound(100);
+		delay(1000);
+		nosound();
 		int ch;
 		cleardevice();
 		while(1)
@@ -37,11 +41,16 @@ void distance(int m,int n,int o,int p,int variable)//Closing Statement
 		{
 			ch=getch();
 			if(ch==27)//exit
-			{
+			{       sound(300);
+				delay(500);
+				nosound();
 				exit(0);
 			}
 			if(ch==8)//backspace
 			{
+				sound(600);
+				delay(500);
+				nosound();
 				game();
 			}
 		}
@@ -129,21 +138,26 @@ void game()
 			 //Reflection
 			 if(i>=585)
 			 {
+				delay(200);
 				i=i-x;
 				x=-10;
 			 }
 			 if(j>=435)
 			 {
+				delay(200);
 				j=j-y;
 				y=-10;
 			 }
 			 if(i<=25)
 			 {
+				delay(200);
 				i=i-x;
 				x=10;
 			 }
 			 if(j<=25)
 			 {
+				delay(200);
+				nosound();
 				j=j-y;
 				y=10;
 			 }
@@ -171,11 +185,11 @@ void game_info()
 		rectangle(100,100,500,400);
 		outtextxy(110,110,"This game is created by");
 		outtextxy(110,120,"Mihir Chouhan and Zaid Farooqui of TE IT B.");
-		outtextxy(110,130,"The creators of this game proudly present this"); 
+		outtextxy(110,130,"The creators of this game proudly present this");
 		outtextxy(110,140,"game to you.");
-		outtextxy(110,150,"We encourage everyone to pick this up and make"); 
+		outtextxy(110,150,"We encourage everyone to pick this up and make");
 		outtextxy(110,160,"it better in anyway possible.");
-		outtextxy(110,170,"Any kind is piracy of this game is strictly"); 
+		outtextxy(110,170,"Any kind is piracy of this game is strictly");
 		outtextxy(110,180,"encouraged.");
 		outtextxy(110,190,"PS : All the lines have been written by the ");
 		outtextxy(110,200,"creators themselves. ABSOLUTE ORIGINAL");
@@ -227,14 +241,25 @@ void menu()//Opening Statement
 				ch = getch();
 				if(ch==72)//up
 				{
+					sound(50);
+					delay(100);
+					nosound();
 					y=-10;
 				}
 				if(ch==80)//down
 				{
+
+					sound(50);
+					delay(100);
+					nosound();
 					y=10;
 				}
 				if(ch==27)//escape button
 				{
+
+					sound(50);
+					delay(100);
+					nosound();
 					exit(0);
 				}
 				if(ch==13)//Enter button
@@ -242,15 +267,25 @@ void menu()//Opening Statement
 					if(j==250)
 					{
 						 //Start a new game
-						 game();
+						sound(700);
+						delay(200);
+						nosound();
+						game();
 					}
 					else if(j==260)
 					{
 						//Call for Game information
+						sound(300);
+						delay(200);
+						nosound();
 						game_info();
 					}
 					else if(j==270)
 					{
+
+						sound(400);
+						delay(200);
+						nosound();
 						exit(0);
 					}
 				}
