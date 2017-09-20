@@ -62,10 +62,13 @@ void distance(int m,int n,int o,int p,int variable)//Closing Statement
 
 void game()
 {
+	char msg[128];
 	int i=50,j=50,x=10,y=0,ch,flag=1,a,b,k=0,m=0;//Flag determines when the random object will be generated
 	while(1)
 		{
 			rectangle(10,10,600,450);//Canvas
+			sprintf(msg , "Game Duration : %d s" , m); //Prints seconds in outtextxy
+			outtextxy(420,15,msg);
 			if(flag==1)//Prints and object at first second
 			{
 				a=rand()%500;
@@ -240,19 +243,31 @@ void menu()//Opening Statement
 			{
 				ch = getch();
 				if(ch==72)//up
-				{
-					sound(50);
-					delay(100);
-					nosound();
-					y=-10;
+				{       if(j==250)
+					{
+						y=0;
+					}
+					else
+					{
+						sound(50);
+						delay(100);
+						nosound();
+						y=-10;
+					}
 				}
 				if(ch==80)//down
 				{
-
-					sound(50);
-					delay(100);
-					nosound();
-					y=10;
+					if(j==270)
+					{
+						y=0;
+					}
+					else
+					{
+						sound(50);
+						delay(100);
+						nosound();
+						y=10;
+					}
 				}
 				if(ch==27)//escape button
 				{
